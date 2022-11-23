@@ -6,7 +6,60 @@
 </head>
 <body>
   <script type="text/javascript">
-    /**/
+    /*
+    * 1. 变量类型
+    *   全局变量
+    *   函数（局部）变量
+    * */
+
+    /*
+    * 2. 全局执行上下文
+    *  执行时间： 所有代码执行前，对全局代码进行预处理
+    *   a. 使用var声明的变量， 添加为window属性，值为undefined
+    *   b. 使用function声明的函数，添加为window方法，值为 方法对象
+    *   c. 将this 指向 window
+    *   d. 开始执行全局代码
+    * */
+    console.log(a)
+    fn()
+    console.log(this)
+
+
+    var a = 10
+    function fn() {
+      console.log('fn')
+    }
+
+    console.log(/*------------------------------*/)
+
+    /*
+    * 3. 局部执行上下文
+    *  执行时间：
+    *   a.
+    *   b.
+    *   c.使用var声明的变量， 添加为window属性，值为undefined
+    *   d.使用function声明的函数，添加为window方法，值为 方法对象
+    *   e.将this 指向 window
+    *   f.开始执行全局代码
+    * */
+
+    function fn(arg) {
+      console.log(arg)
+      console.log(a)
+      fn()
+      console.log(this)
+      console.log(arguments)
+
+      var a = 10
+      function fn() {
+        console.log(fn)
+      }
+    }
+
+    fn(5)
+
+
+
   </script>
 
 </body>
