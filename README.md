@@ -1,2 +1,2 @@
-# AD_javascript
-AD_javascript
+# AD_JavaScript
+AD_JavaScript

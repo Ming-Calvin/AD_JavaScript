@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+  console.log(Date.prototype, typeof Date.prototype)
+
+  function Fn() {}
+  console.log(Fn.prototype) // 空对象，只含有constructor属性，没有其他的属性
+
+  console.log(Date.prototype.constructor === Date)
+  
+  
+  
+  /*
+  * 原型对象
+  * 1. 使用构造函数床架的原型对象是一个空的对象，不包含构造函数的属性（仅有constructor和__proto__）
+  * 2. 构造函数中的prototype指向构造函数的原型对象，原型对象的construct指向构造函数
+  *
+  * */
+  
+  
+  
+</script>
+
+
+</body>
+</html>

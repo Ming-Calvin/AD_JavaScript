@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<script type="text/javascript" >
+  let arr1 = [{
+    value: {
+      a: 1,
+      b: 2
+    },
+    id: 1,
+    name: 'a'
+  }, {
+    value: {
+      a: 2,
+      b: 2
+    },
+    id: 2
+  }, {
+    value: {
+      a: 3,
+      b: 2
+    },
+    id: 3
+  }]
+  let temp = arr1.map(ele => {
+    let obj = new Object();
+    obj[0] = ele.value
+    obj.id = ele.id
+    return obj
+  })
+
+
+  let map = new Map()
+  arr1.forEach((item, index) => {
+    map.set(item.value, item)
+  })
+
+  console.log(map)
+
+  ;[10, 100, 1000, 10000].find(function (elem) {
+    return elem > 100;
+  }) // 1000
+  
+</script>
+</body>
+</html>

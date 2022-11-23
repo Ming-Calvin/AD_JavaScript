@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <script type="text/javascript">
+
+    /*
+    * 变量声明提升：
+    * var声明的变量，可以在定义前获取，值为undefined
+    *
+    * 函数声明提升
+    * function声明的函数，可以在定义前调用，值为函数对象
+    *
+    *
+    *
+    * */
+  
+    console.log('------------------')
+
+    /* 变量提升 */
+    console.log(a)
+
+    /* 函数提升 */
+    fn2()
+
+    /* 变量提升 */
+    // fn3()    // fn3 is not a function -- 此时是变量提升，fn3的值为undefined
+
+    var a = 10
+    
+    function fn2() {
+      console.log('fn2')
+    }
+
+    var fn3 = function () {
+      console.log('fn3')
+    }
+    
+  </script>
+
+
+
+
+</body>
+</html>

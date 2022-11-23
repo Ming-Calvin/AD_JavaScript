@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <script>
+    /*
+    * this是什么
+    * this可以当作方法中的一个变量，值为调用他的对象（如果在全局调用方法，调用它的对象就是window；如果是对象调用方法，值就是调用它的对象）
+    * this的值
+    * 1. 全局中调用 test(); -- window
+    * 2. 对象中的方法 p.test(); -- p
+    * 3. 构造函数中的方法 let x = new test();  x.text(); -- x
+    * 4. call/apply   text.call(obj); obj.text()  将text函数变成obj对象内的方法 -- obj
+    *
+    * */
+    
+    
+    function fn1 (color) {
+      console.log(this)
+      this.color = color
+      this.getColor = function () {
+        console.log(this)
+        return this.color
+      }
+      this.setColor = function () {
+        console.log(this)
+        this.color = color
+      }
+    }
+    
+    fn1('red'); // 全局调用，this指window
+    
+    // var p = new fn1("yellow");
+    // p.getColor();
+    //
+    //
+    // var obj = {};
+    // p.setColor.call(obj,"black");
+    //
+    // var test = p.setColor;
+    // text();
+
+    new fn1("yellow");
+    
+  </script>
+
+</body>
+</html>

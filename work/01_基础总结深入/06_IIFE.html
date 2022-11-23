@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <link type="text/css" href="">
+</head>
+<body>
+  <!--
+  函数自调用的作用
+  1. 不会污染全局变量，函数内声明的是局部变量
+  2. 可以用来封装成一个js模块，比如return一个对象，里面有可以使用的方法和属性
+  3. 外部程序看不到函数的实现，程序是在内部自己隐藏实现的
+  -->
+  
+  <script type="text/javascript">
+    (function () { // 匿名函数自调用
+      console.log('....')
+    })()
+
+    // ; 在函数前的写法
+    ;(function () {
+      var a = 10;
+      function fn1 () {
+        console.log(++a)
+      }
+      window.$ = function () {
+        return {
+          fn1: fn1
+        }
+      }
+    })()
+    
+    $().fn1();
+  
+  
+  
+  </script>
+</body>
+</html>

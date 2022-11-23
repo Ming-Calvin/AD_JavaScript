@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <script>
+    // 引用类型传递的是地址值，当一个变量改变地址值所指对象的值时，另一个变量读取值时，也会被改变
+    // 当一个变量将地址值赋给另一个变量，然后自己重新赋值新引用类型的地址，被赋值的那个变量的地址值不会改变
+    
+    
+    
+    
+    
+    let a = {age: 12};
+    let b = a;
+    a = {name: "tom", age: 13}; // 此时相当于在堆中新创建一个对象，将他的地址值赋值给a
+    console.log(a)
+    console.log(b)
+    
+    
+    // 形参相当于创建一个变量，实参相当于一个值，传入时给形参这个变量赋值
+    
+    let c = {name: "bob", age: 18}
+    function fn(obj) {   // 传参时，内存新开辟一块区域存放局部变量，然后将实参的值赋值传给形参，此时是引用数据类型传值，所以传递的是地址值
+      obj = {age: 20}   // 相当于 obj 先等于 c 的地址值，然后 obj 重新被赋值到 {age: 20} 的地址值， 并没有对c中存的值有改变
+    }
+    console.log(c.age, 'c') // 18
+    
+  </script>
+</body>
+</html>

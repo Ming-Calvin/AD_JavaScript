@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <button id="btn"> click </button>
+  <!--
+   1. 什么是回调函数
+   定义了函数，但是没有手动的去调用这个函数，最后系统执行了这个函数
+   2. 常见的回调
+   * dom操作事件 ==》 this -- 触发函数的dom对象
+   document.getElementById("btn").onclick = (function() {})
+   * 定时器回调函数
+   
+   * ajax请求
+   * 生命周期
+   
+  -->
+  
+  
+  
+  
+  
+
+  <script type="text/javascript">
+    // document.getElementById("btn").onclick = function () {
+    //   console.log(this)
+    // }
+    
+    // 相当于
+    let dom = document.getElementById("btn");
+    dom.onclick = function () {
+      // this 指向调用者 -- dom
+      console.log(this, 'this')
+    }
+    
+    
+    // 定时器
+    // 超市
+    // 循环
+    
+    
+    setTimeout(function () {
+      console.log(this)
+      alert(this)
+    },1000)
+    
+    
+  </script>
+</body>
+</html>

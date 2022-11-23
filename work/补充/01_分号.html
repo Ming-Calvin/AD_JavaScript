@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<script>
+  /*
+  * 两种情况加分号
+  * 1. 匿名函数 -- 以括号开头
+  * ({})()
+  *
+  * 2. 数组调用方法 -- 以中括号开头
+  * []
+  *
+  * 解决方式
+  * 在表达式之前加分号
+  * */
+  
+  let a = ['x',[1,2,3], 'y', 'z', 'u']
+  let b = a
+  [1].forEach(item => {
+    console.log(item)
+  })
+
+  ;(function () {
+    function test1 () {
+      console.log('text1')
+    }
+    
+    window.$ = function () {
+      return {
+        test1: test1
+      }
+    }
+  })()
+  
+  $().test1()
+</script>
+</body>
+</html>

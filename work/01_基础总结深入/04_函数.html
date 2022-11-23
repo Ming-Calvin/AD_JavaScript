@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <!--
+   1. 函数是什么：
+   函数是一段可以执行的代码，由多行语句构成，可以实现特定的功能
+   2. 函数的作用是什么
+   a. 可以进行复用
+   b. 不用看很多遍函数，提高了可阅读性
+   3. 函数的声明方式
+   a. function fn1() {}
+   b. let fn2 = function () {}
+   4. 函数调用方式
+   a. 直接调用 ： test();
+   b. 在对象中作为方法调用： obj.test();
+   c. 变成构造函数调用： let fn = new Test();
+   d. 使用call / apply 方法       让函数成为对象中的方法，再由对象进行调用
+      test.call(obj)  / test.call(obj)
+  
+  
+  
+  -->
+
+
+
+
+  <script>
+  
+  // 声明的方式
+  
+  function fn1() {
+    console.log("fn1");
+  }
+  
+  let fn2 = function() {
+    console.log("fn2");
+  }
+  
+  // 变量提升： js运行时会先将var 和 function 关键字提前到最先运行，并将var赋初始值为 undefined（此时var只声明不定义），function 既声明又定义了
+  
+  // 调用的方式
+  fn1();
+  
+  // obj.fn1();
+  
+  new fn1();
+  
+  // 将 fn1 方法放入 obj 中， 然后让obj 调用方法
+  // fn1.call(obj);
+  // fn1.apply(obj);
+  
+  
+  var obj = {}
+  function text() {
+    this.xxx = 'a'
+  }
+  
+  // obj.test();
+  
+  text.call(obj);
+  console.log(obj, 'obj')
+  
+  
+  </script>
+
+
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<!--
+  A instanceof B  ---  A对象是否是B构造函数的实例
+  
+  B的原型对象是否在A的原型链上
+  A -- 实例对象 __proto__
+  B -- 构造函数对象 prototype
+
+-->
+
+  <script type="text/javascript">
+    function Fn() {}
+
+    let fn1 = new Fn()
+
+    console.log(fn1.__proto__)
+
+    console.log(Object instanceof Array)
+    
+    /***************************************************/
+    
+    function Foo() {}
+    
+    var f1 = new Foo()
+    
+    console.log(f1 instanceof Foo)  // true
+    console.log(f1 instanceof Object) // true
+
+    /***************************************************/
+
+    console.log(Object instanceof Function)
+    /* 实例对象 Objcet 是否在 构造函数 Function 的原型链上 */
+    console.log(Object.__proto__ === Function.prototype, 'Object.__proto__ === Function.prototype')
+    /*
+    * let Object = new Function()
+    * */
+    
+    console.log('/***************************************************/')
+
+    /* 实例对象 Object 是否在 构造函数Object 的原型链上 */
+    console.log(Object instanceof Object)
+    console.log(Object.__proto__.__proto__ === Object.prototype, 'Object.__proto__.__proto__ === Object.prototype')
+    /*
+    * Object.__proto__ === Function.prototype
+    *
+    * let Function.prototype = new Object()
+    * */
+    
+    console.log('/***************************************************/')
+    
+    /*
+    * 实例对象Function 是否在 构造函数Function 的原型链上
+    * */
+    console.log(Function instanceof Function)
+    console.log(Function.__proto__ === Function.prototype, 'Function.__proto__ === Function.prototype')
+    /*
+    *  let Function = new Function()
+    * */
+
+    console.log('/***************************************************/')
+    
+    /*
+    * 实例对象Function 是否在 构造函数Object 的原型链上
+    * */
+    console.log(Function instanceof Object)
+    console.log(Function.__proto__.__proto__ === Object.prototype, 'Function.__proto__ === Object.prototype')
+    /*
+    * Function.__proto__ === Function.prototype
+    *
+    * let Function.prototype = new Object()
+    * */
+
+    console.log('/***************************************************/')
+    
+    function Foo() {}
+
+    /*
+    * 实例对象Object 是否属于 构造函数Foo
+    * */
+    console.log(Object instanceof Foo)  // false
+
+    console.log(Object.__proto__ === Function.prototype)
+    /*
+    * Object.__proto__ === Function.prototype
+    *
+    * Foo只是构造函数，没有实例对象的__proto__指向它  Foo.prototype
+    * */
+    
+  </script>
+
+</body>
+</html>

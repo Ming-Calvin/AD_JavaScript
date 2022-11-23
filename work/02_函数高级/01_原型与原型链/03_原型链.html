@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <script type="text/javascript">
+    
+    console.log(Object.prototype)
+    
+    function Fn() {
+      this.text1 = function () {
+        console.log('text1')
+      }
+    }
+
+    console.log(Fn.prototype) // 查看的是引用变量的地址值，执行结果是在全部代码跑完后出现的，所以text2方法已经在此地址值指向的对象中了，所以打印的对象有text2方法
+    
+    Fn.prototype.text2 = function () {
+      console.log('text2')
+    }
+    
+    let fn = new Fn()
+    
+    fn.text1()
+    fn.text2()
+
+    console.log(fn.toString())
+    
+    // fn.text3()   // text3 -- undefined
+    
+   
+  </script>
+  
+
+</body>
+</html>
