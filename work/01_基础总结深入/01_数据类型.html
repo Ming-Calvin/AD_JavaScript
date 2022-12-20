@@ -6,5 +6,26 @@
 </head>
 <body>
 
+  <script type="text/javascript">
+    let a = 1
+    a = new Number(1)
+    
+    console.log(a instanceof Number, 'number')
+    
+    let b = '123'
+    b = new String('123')
+    console.log(b instanceof String, 'string')
+    
+    let c = { a: 123 }
+    console.log(c instanceof Object, 'object')
+    
+    let d = null
+    console.log(d instanceof Object, 'null')
+    // console.log(d instanceof null)
+    
+    let e = []
+    console.log(e instanceof Object, 'array')
+    console.log(e instanceof Array, 'array')
+  </script>
 </body>
 </html>
