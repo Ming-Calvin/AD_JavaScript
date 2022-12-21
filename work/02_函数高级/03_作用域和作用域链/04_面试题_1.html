@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <script type="text/javascript">
+    /*
+    * 题1: 考点: 作用域在函数定义时就已经生成,是静态的,不会根据函数执行的位置而改变
+    * */
+  
+    /*------全局作用域-------*/
+    var x = 10
+
+    /*------局部作用域1-------*/
+    function fn() {
+      console.log(x)  // 执行函数时,找不到x,根据作用域链,向上作用域寻找,上作用域为全局作用域,所以x为10
+    }
+    /*------局部作用域1结束-------*/
+
+    /*------局部作用域2-------*/
+    function show(f) {
+      var x = 20
+      f() // 执行函数时,函数的作用域依旧没有改变
+    }
+    /*------局部作用域2结束-------*/
+    
+    show(fn)  // 结果为10
+    
+  
+  </script>
+
+</body>
+</html>
