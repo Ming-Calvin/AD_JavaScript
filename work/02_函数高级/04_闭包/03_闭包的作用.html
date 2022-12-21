@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <script>
+    function fn1() {
+      var a = 1
+      function fn2() {
+        a++
+        console.log(a)
+      }
+      
+      return fn2
+    }
+    
+    var f = fn1()
+    // 作用1: 在函数执行完之后还可以保留内部变量,变量不会消失在内存中,延长内部变量的生命周期
+    // 作用2: 使函数外部可以操作(读写)函数内部的数据(变量/函数)
+    f(); // 2
+    f(); // 3
+    
+    
+    
+    
+  </script>
+</body>
+</html>
