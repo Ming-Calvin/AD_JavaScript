@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  
+
+  <script type="text/javascript">
+    // 作用域5个 ： 全局 f(1) f(2) f(3) f(4)
+    /*
+    * 输出：
+    * gb undefined
+    * fb 1
+    * fb 2
+    * fb 3
+    * fe 3
+    * fe 2
+    * fe 1
+    * ge 1
+    * */
+    
+    
+    console.log("global begin" + i)
+    
+    var i = 1
+    
+    foo(1)
+    
+    function foo(i) {
+      if(i == 4) return
+      
+      console.log(" foo() begin" + i)
+      foo(i + 1)
+      console.log(" foo() end" + i)
+    }
+
+    console.log("global end" + i)
+  </script>
+
+</body>
+</html>
