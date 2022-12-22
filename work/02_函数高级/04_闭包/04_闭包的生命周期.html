@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <script type="text/javascript">
+    function fn1() {
+      // 此时就已经产生闭包
+      var a = 0
+
+      function fn2() {
+        a++
+        console.log(a)
+      }
+
+      return fn2
+    }
+
+    var f = fn1()
+    f()
+    f()
+
+  </script>
+</body>
+</html>
