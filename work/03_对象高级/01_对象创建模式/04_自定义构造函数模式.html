@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <script type="text/javascript">
+    // 使用场景： 有多个类型确认的数据
+    // 问题： 创建多个对象被时，相同的方法占用内存
+    
+    function Person(name, age) {
+      this.name = name
+      this.age = age
+      this.setName = function (name) {
+        this.name = name
+      }
+    }
+    let p = new Person('tom', 12)
+    // 可以准备判断实例对象属于哪个类型
+    console.log(p instanceof Person, 'p instanceof Person')
+    console.log(p instanceof Student, 'p instanceof Student')
+
+    function Student(name, price) {
+      this.name = name
+      this.price = price
+      this.setName = function (name) {
+        this.name = name
+      }
+    }
+    
+    let s = new Student('bob', 1231231)
+    console.log(s instanceof Student)
+  </script>
+
+</body>
+</html>

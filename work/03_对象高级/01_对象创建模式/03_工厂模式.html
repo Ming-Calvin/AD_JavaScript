@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <script type="text/javascript">
+    // 不使用！！！
+    // 适用场景： 创建多个相似的对象时
+    // 问题：都是Objecgt类型，没有特定的类型
+    
+    function createPerson(name, age) {
+      // 工厂函数 ==> 返回值为对象的函数
+      
+      var obj = {
+        name: name,
+        age: age,
+        setName: function (name) {
+          this.name = name
+        }
+      }
+      
+      return obj
+    }
+    
+    let p1 = createPerson('tom', 12)
+    let p1 = createPerson('bob', 13)
+  
+  </script>
+
+</body>
+</html>

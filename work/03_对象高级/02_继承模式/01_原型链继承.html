@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <script>
+    // 父类型
+    function Supper() {
+      this.supProp = 'Supper'
+    }
+    Supper.prototype.showSupper = function () {
+      console.log(this.supProp)
+    }
+    
+    // 子类型
+    function Sub() {
+      this.subProp = 'Sub'
+    }
+    // 继承 让sub的实例对象由supper构造函数创建
+    Sub.prototype = new Supper(); // 此时Sub.prototype中有supProp属性，值为'Supper'
+    
+    // new 创建对象时，会先创建一个空对象，将this的指向改为此对象，然后执行函数代码将值赋值给对象，返回这个对象地址
+    
+    Sub.prototype.showSub = function () {
+      console.log(this.subProp)
+    }
+    
+    var sub = new Sub()
+    sub.showSupper()
+
+    console.log(sub)
+    console.log(sub.constructor) // Supper
+    // constructor存在于prototype中
+    
+    // 修改子类型原型构造器的指向
+    Sub.prototype.constructor = Sub
+    console.log(sub.constructor) // Sub
+    
+  </script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
