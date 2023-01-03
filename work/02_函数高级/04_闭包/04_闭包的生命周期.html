@@ -6,22 +6,48 @@
 </head>
 <body>
   <script type="text/javascript">
+    /*
+    * 产生：嵌套在内部的函数定义时产生
+    * 结束：当内部函数成为垃圾对象时
+    * */
+    
     function fn1() {
-      // 此时就已经产生闭包
-      var a = 0
+    // 此时就已经产生闭包，因为有函数提升，function会提前定义，fn2已经创建了
+    var a = 0
 
-      function fn2() {
-        a++
-        console.log(a)
-      }
+    function fn2() {
+      a++
+      console.log(a)
+    }
 
-      return fn2
+    return fn2
     }
 
     var f = fn1()
     f()
     f()
 
+    f = null // 此时闭包结束，因为内部函数所指的内存空间被释放了
+    
+    /*---------------------------------------------------------*/
+
+    // function fn1() {
+    //   var a = 0
+    //
+    //   var fn2 = function (){
+    //     // 闭包现在才定义，闭包才产生
+    //     a++
+    //     console.log(a)
+    //   }
+    //
+    //   return fn2
+    // }
+    //
+    // var f = fn1()
+    // f()
+    // f()
+    //
+    // f = null
   </script>
 </body>
 </html>
