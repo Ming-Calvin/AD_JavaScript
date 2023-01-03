@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<script>
+  // 1. 内存溢出
+  // 一种程序执行错误 -- 当前执行的程序超出了剩下内的内存空间
+  
+  // var obj = {}
+  // for(var i = 0; i < 10000; i++) {
+    // obj[i] = new Array(1000000000)
+    // console.log('-------')
+  // }
+  
+  // 2. 内存泄露： 内存被不使用的数据占用，没有及时释放内存
+  // 内存泄露多了之后会导致内存空间不足，容易造成内存溢出
+  
+  // 常见的内存泄露：
+  // 1. 意外的全局变量
+  function fn() {
+    a = 'xxxx'
+    console.log(a)
+  }
+  fn()
+  
+  // 2. 没有清楚的定时器函数
+  var intervalId = setInterval(function () {
+    console.log(123)
+  }, 1000)
+  
+  clearInterval(intervalId) // 释放内存
+  
+  // 3. 闭包
+  function fn1() {
+    var x = 123
+    
+    function fn2() {
+      console.log(++x)
+    }
+    
+    return fn2
+  }
+  
+  var f = fn1()
+  f()
+  
+  f = null  // 释放内存
+  
+</script>
+
+</body>
+</html>

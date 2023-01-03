@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<script type="text/javascript">
+  /*
+  * 闭包的缺点：
+  * 1. 函数执行完后，局部变量不会被释放，占用内存的时间变长
+  * 2. 内存泄露： 程序长时间占用不使用的内存空间
+  *
+  * 解决方法：
+  * 1. 能不使用闭包不使用闭包
+  * 2. 内部函数对象变成垃圾对象
+  * */
+  
+  function fn1() {
+    var arr = new Array(10000)
+    
+    function fn2() {
+      console.log(arr.length)
+    }
+    
+    return fn2
+  }
+  
+  var f = fn1()
+  f()
+  
+  f = null
+</script>
+
+</body>
+</html>

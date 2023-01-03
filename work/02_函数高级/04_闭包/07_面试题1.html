@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <script>
+    var name = 'The Window'
+    
+    var object = {
+      name: 'My Object',
+      getNameFunc: function () {
+        return function () {
+          return this.name
+        }
+      }
+    }
+
+    console.log(object.getNameFunc()()) // The Window
+    /*
+    * object.getNameFunc() = function () {
+    * return this.name
+    * }
+    *
+    * 相当于 window.function()
+    *
+    * 无闭包
+    * */
+
+    var name2 = 'The Window'
+
+    var object2 = {
+      name2: 'My Object',
+      getNameFunc: function () {
+        // 此时 that 指向调用 getNameFunc 的变量
+        var that = this
+        return function () {
+          return that.name2
+        }
+      }
+    }
+
+    // 此时 that 指向调用 getNameFunc 的变量 -- object2
+    console.log(object2.getNameFunc()()) // My Object
+    /*
+    * 有闭包
+    * */
+  </script>
+ 
+
+</body>
+</html>
