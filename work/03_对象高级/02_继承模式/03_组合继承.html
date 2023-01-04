@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <script type="text/javascript">
+    /*
+    * 利用原型链继承父函数的方法
+    *
+    * 利用call 和 构造函数继承父函数的属性
+    * */
+    
+    function Person(name, age) {
+      this.name = name
+      this.age = age
+    }
+    // 原型链上添加方法
+    Person.prototype.setName = function (name) {
+      this.name = name
+    }
+    
+    
+    
+    function Student(name, age, price) {
+      Person.call(this, name, age)  // 使用call方法，改变this指向, 从而继承父方法的属性
+    }
+
+    // 将子函数的原型对象改为父函数的实例对象，使得子函数的prototype的__proto__指向父函数的prototype
+    Student.prototype = new Person() // 不用考虑属性继承，之后使用call方法继承
+    Student.prototype.constructor = Student // 添加构造器属性
+    
+    Student.prototype.setPrice = function (price) {
+      this.price = price
+    }
+    
+    
+  </script>
+</body>
+</html>

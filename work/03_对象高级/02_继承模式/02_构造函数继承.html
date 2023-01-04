@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <script>
+    function Person(name, age) {
+      this.name = name
+      this.age = age
+    }
+    
+    function Student(name, age, price) {
+      Person.call(this, name, age) // 相当于 this.Person(name, age)
+      /*
+      * 相当于
+      * this.name = name
+      * this.age = age
+      * */
+      
+      this.price = price
+    }
+    
+    // call/apply 方法，让函数成为对象的方法，由对象进行调用
+    // function fn1(num) {
+    //   console.log(this.name)
+    //   console.log(this)
+    // }
+    //
+    // let obj = {
+    //   name: 'xx'
+    // }
+    //
+    // fn1.call(obj)
+    
+    
+  </script>
+
+</body>
+</html>
