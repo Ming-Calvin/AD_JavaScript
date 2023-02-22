@@ -26,9 +26,10 @@
       (function(i) {
         var btn = btns[i]
         btn.onclick = function () {
-          console.log(i+1)
+          console.log(i+1)     // 有产生闭包，因为这个函数是嵌套函数，而且使用了形参i(形参也是一个局部变量)
         }
       })(i)
+      // 闭包的数量是根据父函数调用的次数决定的，此是父函数执行三次，则产生三个闭包，三个闭包中i的值分别为 0 ， 1 ， 2
     }
     
     

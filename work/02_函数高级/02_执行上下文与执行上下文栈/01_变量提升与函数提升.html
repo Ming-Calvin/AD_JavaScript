@@ -19,25 +19,60 @@
     * */
   
     console.log('------------------')
-
-    /* 变量提升 */
-    console.log(a)
-
-    /* 函数提升 */
-    fn2()
-
-    /* 变量提升 */
-    // fn3()    // fn3 is not a function -- 此时是变量提升，fn3的值为undefined
-
-    var a = 10
+    //
+    // /* 变量提升 */
+    // console.log(a)
+    //
+    // /* 函数提升 */
+    // fn2()
+    //
+    // /* 变量提升 */
+    // // fn3()    // fn3 is not a function -- 此时是变量提升，fn3的值为undefined
+    //
+    // var a = 10
+    //
+    // function fn2() {
+    //   console.log('fn2')
+    // }
+    //
+    // var fn3 = function () {
+    //   console.log('fn3')
+    // }
     
-    function fn2() {
-      console.log('fn2')
-    }
+    /*-------------------------*/
+    console.log('-------------------')
+    
+    // var x = 20
+    // function fn() {
+    //   console.log(123)
+    // }
+    // ;(function () {
+    //   // 说明此时函数和变量都提升了，函数提升像是变量提升，只有声明没有赋值， 如果没有声明则会报错
+    //   // 只有当判断条件成立时，才会给函数赋值，被定义成undefined
+    //   console.log(fn, 'fn') // undefined
+    //   console.log(x, 'x') // undefined
+    //
+    //   if(false) {
+    //     function fn() {
+    //       console.log('xxxx')
+    //     }
+    //
+    //     var x = 10
+    //   }
+    // }())
 
-    var fn3 = function () {
-      console.log('fn3')
+    console.log('-------------------')
+    
+    var a = 1
+    function b () {
+      console.log(a)  // undefined
+      a = 10  // window.a = 10
+      return;
+      function a() {}
     }
+    
+    b()
+    console.log(a)  // 10
     
   </script>
 
