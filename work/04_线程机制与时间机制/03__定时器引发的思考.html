@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <div id="btn"> 点击 </div>
+
+
+  <script type="text/javascript">
+    document.getElementById("btn").onclick = function () {
+      // 获取当前时间
+      var start = Date.now()
+      // var start1 = new Date().getTime()
+
+      setTimeout(function () {
+        console.log(Date.now() - start)
+      }, 200)
+      // 此时定时器误差很小
+
+      for(var i = 0; i < 5000000000; i++) {
+        // 加入循环后，误差变得很大
+      }
+
+
+    }
+  </script>
+</body>
+</html>
