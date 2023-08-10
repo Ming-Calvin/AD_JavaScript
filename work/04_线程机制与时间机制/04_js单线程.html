@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <!--
+    1. 如何证明js是单线程
+      js 在被alert打断的时候，会暂停定时器的操作，等到内部代码全部运行完了，才会继续运行回调函数
+    
+    2. js执行代码的流程
+      a. 执行初始化代码
+      b. 执行回调函数代码
+      
+      回调函数：定时器；事件监听；ajax请求
+  -->
+
+  <script>
+    setTimeout(() => {
+      console.log(0)
+      // alert(0)
+    }, 0)
+    
+    setTimeout(() => {
+      console.log(1000)
+      // alert(1000)
+    }, 1000)
+
+    setTimeout(() => {
+      console.log(2000)
+      // alert(2000)
+    }, 2000)
+  
+    function fn() {
+      console.log('fn')
+    }
+    
+    fn();
+
+    console.log('before')
+    alert('----')
+    console.log('after')
+  </script>
+</body>
+</html>

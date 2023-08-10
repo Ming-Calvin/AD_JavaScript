@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <input type="text" placeholder="计算">
+  <button>计算</button>
+  <script type="text/javascript">
+    let input = document.querySelector('input')
+    
+    document.querySelector('button').onclick = () => {
+      let number = input.value
+      
+      // 创建一个worker对象
+      let worker = new Worker('worker.js')
+  
+      // 接收分线程数据
+      worker.onmessage = (event) => {
+        console.log('主线程接收到分线程数据' + event.data)
+        alert(event.data)
+      }
+      
+      // 向分线程发送信息
+      worker.postMessage(number)
+      console.log('主线程向分线程发送信息:' + number)
+  
+      
+      
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  
+  </script>
+
+</body>
+</html>

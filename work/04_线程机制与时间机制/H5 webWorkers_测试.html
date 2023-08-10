@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <input type="text" placeholder="计算">
+  <button>计算</button>
+  <script type="text/javascript">
+    let input = document.querySelector('input')
+    
+    document.querySelector('button').onclick = () => {
+      let number = input.value
+      let result = fibonacci(number)
+      alert(result)
+    }
+    
+    function fibonacci(n) {
+      if (n==1 || n==2) return 1
+      return fibonacci(n-1) + fibonacci(n-2)
+    }
+    
+  
+  </script>
+
+</body>
+</html>
